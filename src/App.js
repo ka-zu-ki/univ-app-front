@@ -1,8 +1,10 @@
+import SignUp from "./components/SignUp"
+
 const App = () => {
   return (
-    <div className="App">
-      <h1>aaaaaaa</h1>
-    </div>
+    <>
+      <SignUp />
+    </>
   );
 }
 
