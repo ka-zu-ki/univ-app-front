@@ -4,3 +4,7 @@ import { SIGN_UP_URL, SIGN_IN_URL, SIGN_OUT_URL } from "../urls/index";
 export const fetchSignUp = (params) => {
   return axios.post(SIGN_UP_URL, params)
 }
+
+export const fetchSignIn = (params) => {
+  return axios.post(SIGN_IN_URL, params)
+}
