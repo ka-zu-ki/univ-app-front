@@ -10,7 +10,8 @@ export const initialState = {
     name: "",
     email: ""
   }],
-  isLogin: false
+  isLogin: true
+  // isLogin: false
 }
 
 export const authReducer = (state = initialState, action) => {

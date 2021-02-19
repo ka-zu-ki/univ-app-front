@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 
 import AppContext from "../../contexts/AppContext";
-import Home from '../Home';
+import Layout from '../Layout/Layout';
 import LogIn from './LogIn';
 
 const Auth = () => {
@@ -10,7 +10,7 @@ const Auth = () => {
   return (
     <>
       {state.isLogin?
-        <Home />
+        <Layout />
         :
         <LogIn />
       }
