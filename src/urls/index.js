@@ -1,5 +1,5 @@
 const BASE_URL = 'http://localhost:3000/api/v1'
-const AUTH_URL = 'http://localhost:3000/api/v1/auth'
+const AUTH_URL = 'http://localhost:3000/api/v1/user'
 
 export const SIGN_UP_URL = `${AUTH_URL}`
 export const SIGN_IN_URL = `${AUTH_URL}/sign_in`
