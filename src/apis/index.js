@@ -13,10 +13,10 @@ export const fetchSignIn = (params) => {
   return axios.post(SIGN_IN_URL, params)
 }
 
-export const fetchLessons = async() => {
-  return await axios.get(LESSONS_URL)
-    .then(res => {
-      return console.log(res.data)
-    })
-    .catch(e => console.log(e.message))
+export const fetchLessons = () => {
+  return axios.get(LESSONS_URL)
+    // .then(res => {
+    //   return console.log(res.data)
+    // })
+    // .catch(e => console.log(e.message))
 }
