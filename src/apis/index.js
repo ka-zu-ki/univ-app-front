@@ -2,7 +2,8 @@ import axios from 'axios'
 import { 
   SIGN_UP_URL, 
   SIGN_IN_URL,
-  LESSONS_URL 
+  LESSONS_URL,
+  LESSON_URL
 } from "../urls/index";
 
 export const fetchSignUp = (params) => {
@@ -15,8 +16,8 @@ export const fetchSignIn = (params) => {
 
 export const fetchLessons = () => {
   return axios.get(LESSONS_URL)
-    // .then(res => {
-    //   return console.log(res.data)
-    // })
-    // .catch(e => console.log(e.message))
+}
+
+export const fetchLesson = () => {
+  return axios.get(LESSON_URL)
 }

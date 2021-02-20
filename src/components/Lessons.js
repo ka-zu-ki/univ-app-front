@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { fetchLessons } from "../apis/index";
+// import {  } from "../reducers/lessonsReducer";
 
 const Lessons = () => {
   const [loading, setLoading] = useState(null);
@@ -31,7 +32,17 @@ const Lessons = () => {
       {loading ? (
         <h2>ローディング中</h2>
       ) : (
-        lessons.map((lesson) => <p>{lesson.name}</p>)
+        lessons.map((lesson, index) => (
+          <Link to={`/lessons/:id`} key={index}>
+            <table>
+              <tr>
+                <th>{lesson.name}</th>
+                <td>{lesson.professor}</td>
+                <td>{lesson.period}</td>
+              </tr>
+            </table>
+          </Link>
+        ))
       )}
     </>
   );
