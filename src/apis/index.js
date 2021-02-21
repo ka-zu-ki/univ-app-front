@@ -18,6 +18,6 @@ export const fetchLessons = () => {
   return axios.get(LESSONS_URL)
 }
 
-export const fetchLesson = () => {
-  return axios.get(LESSON_URL)
+export const fetchLesson = (id) => {
+  return axios.get(LESSON_URL + id)
 }

@@ -13,9 +13,9 @@ const Lessons = () => {
       try {
         setLoading(true);
 
-        const lessons = await fetchLessons();
-        const res = lessons.data;
-        setLessons(res);
+        const res = await fetchLessons();
+        const lessons = res.data;
+        setLessons(lessons);
 
         setLoading(false);
       } catch {
@@ -33,13 +33,15 @@ const Lessons = () => {
         <h2>ローディング中</h2>
       ) : (
         lessons.map((lesson, index) => (
-          <Link to={`/lessons/:id`} key={index}>
+          <Link to={`/lessons/${lesson.id}`} key={index}>
             <table>
-              <tr>
-                <th>{lesson.name}</th>
-                <td>{lesson.professor}</td>
-                <td>{lesson.period}</td>
-              </tr>
+              <tbody>
+                <tr>
+                  <th>{lesson.name}</th>
+                  <td>{lesson.professor}</td>
+                  <td>{lesson.period}</td>
+                </tr>
+              </tbody>
             </table>
           </Link>
         ))
