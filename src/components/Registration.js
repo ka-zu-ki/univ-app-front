@@ -1,12 +1,29 @@
 /** @jsxImportSource @emotion/react */
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { css } from "@emotion/react";
 
 import Modal from "./Modal";
+import { fetchLessons } from "../apis";
 
 const Registration = () => {
   const [open, setOpen] = useState(false);
+  const [lessons, setLessons] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetchLessons();
+        const lessons = res.data;
+
+        setLessons(lessons);
+      } catch {
+        console.log("失敗");
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -25,8 +42,7 @@ const Registration = () => {
         <tbody>
           <tr>
             <th>1</th>
-            <td css={tdCss} onClick={() => setOpen(true)}>
-            </td>
+            <td css={tdCss} onClick={() => setOpen(true)}></td>
             <td css={tdCss}></td>
             <td css={tdCss}></td>
             <td css={tdCss}></td>
@@ -47,7 +63,7 @@ const Registration = () => {
         </tbody>
       </table>
 
-      <Modal open={open} setOpen={setOpen} /> 
+      <Modal open={open} setOpen={setOpen} lessons={lessons} />
     </>
   );
 };
