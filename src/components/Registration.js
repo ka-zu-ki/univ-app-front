@@ -9,6 +9,9 @@ import { fetchLessons } from "../apis";
 const Registration = () => {
   const [open, setOpen] = useState(false);
   const [lessons, setLessons] = useState([]);
+  const weeks = ["月", "火", "水", "木", "金"];
+  const times = [1, 2, 3, 4, 5];
+  const tds = [1, 2, 3, 4, 5];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,34 +35,26 @@ const Registration = () => {
         <thead>
           <tr>
             <th></th>
-            <th>月</th>
-            <th>火</th>
-            <th>水</th>
-            <th>木</th>
-            <th>金</th>
+            {weeks.map((week, index) => (
+              <th key={index}>{week}</th>
+            ))}
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th>1</th>
-            <td css={tdCss} onClick={() => setOpen(true)}></td>
-            <td css={tdCss}></td>
-            <td css={tdCss}></td>
-            <td css={tdCss}></td>
-            <td css={tdCss}></td>
-          </tr>
-          <tr>
-            <th>2</th>
-          </tr>
-          <tr>
-            <th>3</th>
-          </tr>
-          <tr>
-            <th>4</th>
-          </tr>
-          <tr>
-            <th>5</th>
-          </tr>
+          {times.map((time, index) => {
+            return (
+              <tr key={index}>
+                <th key={index}>{time}</th>
+                {tds.map((index) => (
+                  <td
+                    key={index}
+                    css={tdCss}
+                    onClick={() => setOpen(true)}
+                  ></td>
+                ))}
+              </tr>
+            );
+          })}
         </tbody>
       </table>
 
