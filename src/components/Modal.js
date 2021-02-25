@@ -3,7 +3,7 @@
 import React from "react";
 import { css } from "@emotion/react";
 
-const Modal = ({ open, setOpen, lessons }) => {
+const Modal = ({ open, setOpen, lessons, td, time, week}) => {
   return (
     <>
       {open ? (
@@ -13,7 +13,7 @@ const Modal = ({ open, setOpen, lessons }) => {
             {lessons.map(
               (lesson, index) =>
                 lesson.week === "Mon" &&
-                lesson.time === 1 && <p key={index}>{lesson.name}</p>
+                lesson.time === td && <p key={index}>{lesson.name}</p>
             )}
             <button onClick={() => setOpen(false)}>授業を選択する</button>
           </div>
