@@ -6,3 +6,4 @@ export const SIGN_IN_URL = `${AUTH_URL}/sign_in`
 export const SIGN_OUT_URL = `${AUTH_URL}/sign_out`
 export const LESSONS_URL = `${BASE_URL}/lessons`
 export const LESSON_URL = `${BASE_URL}/lessons/`
+export const CONDITIONAL_LESSON_URL = `${BASE_URL}/time_table_lessons`
