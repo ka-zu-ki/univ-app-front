@@ -8,15 +8,21 @@ import { fetchConditionalLessons } from "../apis"
 
 const Registration = () => {
   const [open, setOpen] = useState(false);
+  const [lessons, setLessons] = useState([])
+  const [week, setWeek] = useState(["Mon", "Tue", "Wed", "Thu", "Fri"])
+  const [time, setTime] = useState([1, 2, 3, 4, 5])
 
-  const handleClick = () => {
-    setOpen(true)
-    fetchData()
+  const fetchData = async (week, time) => {
+    const res = await fetchConditionalLessons(week, time)
+    const lessons = res.data
+    setLessons(lessons)
   }
 
-  const fetchData = async () => {
-    const res = await fetchConditionalLessons("Mon", 1)
-    console.log(res.data)
+  const handleClick = (week, time) => {
+    // setWeek(week)
+    // setTime(time)
+    setOpen(true)
+    fetchData(week, time)
   }
 
   return (
@@ -36,10 +42,8 @@ const Registration = () => {
         <tbody>
           <tr>
             <th>1</th>
-
-            <td css={tdCss} onClick={() => handleClick()}>
+            <td css={tdCss} onClick={() => handleClick("Mon", 1)}>
             </td>
-
             <td css={tdCss}>
             </td>
             <td css={tdCss}>
@@ -87,6 +91,7 @@ const Registration = () => {
       <Modal
         open={open}
         setOpen={setOpen}
+        lessons={lessons}
       />
     </>
   );
