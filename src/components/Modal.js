@@ -3,16 +3,18 @@
 import React from "react";
 import { css } from "@emotion/react";
 
-const Modal = ({ open, setOpen, lessons }) => {
+const Modal = ({ open, setOpen, lessons, loading }) => {
   return (
     <>
       {open ? (
         <div css={overlayCss}>
           <div css={contentCss}>
             <p>授業一覧</p>
-            {lessons.map((lesson, index) => (
-              <p key={index}>{lesson.name}</p>
-            ))}
+            {loading ? (
+              <p>ローディング中・・・</p>
+              ) : (
+              lessons.map((lesson, index) => <p key={index}>{lesson.name}</p>)
+            )}
             <button onClick={() => setOpen(false)}>授業を選択する</button>
           </div>
         </div>

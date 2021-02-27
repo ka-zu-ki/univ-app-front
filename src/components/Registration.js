@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { css } from "@emotion/react";
 
 import Modal from "./Modal";
@@ -9,18 +9,25 @@ import { fetchConditionalLessons } from "../apis"
 const Registration = () => {
   const [open, setOpen] = useState(false);
   const [lessons, setLessons] = useState([])
-  const [week, setWeek] = useState(["Mon", "Tue", "Wed", "Thu", "Fri"])
-  const [time, setTime] = useState([1, 2, 3, 4, 5])
+  const [loading, setLoading] = useState(false)
+  const [weeks, setWeek] = useState(["Mon", "Tue", "Wed", "Thu", "Fri"])
+  const [times, setTime] = useState([1, 2, 3, 4, 5])
 
   const fetchData = async (week, time) => {
-    const res = await fetchConditionalLessons(week, time)
-    const lessons = res.data
-    setLessons(lessons)
+    setLoading(true)
+
+    try {
+      const res = await fetchConditionalLessons(week, time)
+      const lessons = res.data 
+      setLessons(lessons)
+    } catch {
+      console.log('失敗')
+    }
+
+    setLoading(false)
   }
 
   const handleClick = (week, time) => {
-    // setWeek(week)
-    // setTime(time)
     setOpen(true)
     fetchData(week, time)
   }
@@ -42,56 +49,55 @@ const Registration = () => {
         <tbody>
           <tr>
             <th>1</th>
-            <td css={tdCss} onClick={() => handleClick("Mon", 1)}>
-            </td>
-            <td css={tdCss}>
-            </td>
-            <td css={tdCss}>
-            </td>
-            <td css={tdCss}>
-            </td>
-            <td css={tdCss}>
-            </td>
+            {
+              weeks.map((week, index) => (
+                <td key={index} css={tdCss} onClick={() => handleClick(week, 1)}></td>
+              ))
+            }
           </tr>
           <tr>
             <th>2</th>
-            <td css={tdCss}></td>
-            <td css={tdCss}></td>
-            <td css={tdCss}></td>
-            <td css={tdCss}></td>
-            <td css={tdCss}></td>
+            {
+              weeks.map((week, index) => (
+                <td key={index} css={tdCss} onClick={() => handleClick(week, 2)}></td>
+              ))
+            }
           </tr>
           <tr>
             <th>3</th>
-            <td css={tdCss}></td>
-            <td css={tdCss}></td>
-            <td css={tdCss}></td>
-            <td css={tdCss}></td>
-            <td css={tdCss}></td>
+            {
+              weeks.map((week, index) => (
+                <td key={index} css={tdCss} onClick={() => handleClick(week, 3)}></td>
+              ))
+            }
           </tr>
           <tr>
             <th>4</th>
-            <td css={tdCss}></td>
-            <td css={tdCss}></td>
-            <td css={tdCss}></td>
-            <td css={tdCss}></td>
-            <td css={tdCss}></td>
+            {
+              weeks.map((week, index) => (
+                <td key={index} css={tdCss} onClick={() => handleClick(week, 4)}></td>
+              ))
+            }
           </tr>
           <tr>
             <th>5</th>
-            <td css={tdCss}></td>
-            <td css={tdCss}></td>
-            <td css={tdCss}></td>
-            <td css={tdCss}></td>
-            <td css={tdCss}></td>
+            {
+              weeks.map((week, index) => (
+                <td key={index} css={tdCss} onClick={() => handleClick(week, 5)}></td>
+              ))
+            }
           </tr>
         </tbody>
       </table>
+
+      <button>履修登録を決定する</button>
 
       <Modal
         open={open}
         setOpen={setOpen}
         lessons={lessons}
+        setLoading={setLoading}
+        loading={loading}
       />
     </>
   );
