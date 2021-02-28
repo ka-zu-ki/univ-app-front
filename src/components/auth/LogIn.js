@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import AppContext from "../../contexts/AppContext";
 import { fetchSignIn } from "../../apis/index";
-import { SIGN_IN } from "../../actions/index";
+import { LOG_IN } from "../../actions/index";
 
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
@@ -28,7 +28,7 @@ const LogIn = () => {
 
     res.status === 200
       ? dispatch({
-          type: SIGN_IN,
+          type: LOG_IN,
         })
       : console.log("失敗");
   };

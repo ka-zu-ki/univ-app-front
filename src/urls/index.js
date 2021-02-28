@@ -1,9 +1,8 @@
 const BASE_URL = 'http://localhost:3000/api/v1'
-const AUTH_URL = 'http://localhost:3000/api/v1/user'
 
-export const SIGN_UP_URL = `${AUTH_URL}`
-export const SIGN_IN_URL = `${AUTH_URL}/sign_in`
-export const SIGN_OUT_URL = `${AUTH_URL}/sign_out`
+export const SIGN_UP_URL = `${BASE_URL}/signup`
+export const LOG_IN_URL = `${BASE_URL}/login`
+export const LOG_OUT_URL = `${BASE_URL}/logout`
 export const LESSONS_URL = `${BASE_URL}/lessons`
 export const LESSON_URL = `${BASE_URL}/lessons/`
 export const CONDITIONAL_LESSON_URL = `${BASE_URL}/time_table_lessons`

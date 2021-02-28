@@ -25,14 +25,13 @@ const SignUp = () => {
   const onSubmit = async (formValue) => {
     console.log(formValue);
     const res = await fetchSignUp(formValue);
-    console.log(res.data);
+    console.log(res);
 
     res.status === 200
       ? dispatch({
           type: SIGN_UP,
           payload: {
             id: res.data.id,
-            name: res.data.name,
             email: res.data.email,
           },
         })
@@ -48,23 +47,10 @@ const SignUp = () => {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign Up
+            新規登録
           </Typography>
           <form className={classes.form} noValidate onSubmit={handleSubmit(onSubmit)}>
             <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <TextField
-                  autoComplete="fname"
-                  name="name"
-                  variant="outlined"
-                  required
-                  fullWidth
-                  id="firstName"
-                  label="Name"
-                  autoFocus
-                  inputRef={register}
-                />
-              </Grid>
               <Grid item xs={12}>
                 <TextField
                   variant="outlined"
@@ -86,6 +72,19 @@ const SignUp = () => {
                   label="Password"
                   type="password"
                   id="password"
+                  autoComplete="current-password"
+                  inputRef={register}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  variant="outlined"
+                  required
+                  fullWidth
+                  name="password_confirmation"
+                  label="PasswordConfirmation"
+                  type="password"
+                  id="password_confirmation"
                   autoComplete="current-password"
                   inputRef={register}
                 />
@@ -126,7 +125,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: theme.palette.secondary.main,
   },
   form: {
-    width: "100%", // Fix IE 11 issue.
+    width: "100%",
     marginTop: theme.spacing(3),
   },
   submit: {
