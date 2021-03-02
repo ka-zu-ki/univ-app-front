@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import AppContext from "../../contexts/AppContext";
 import { fetchSignUp } from "../../apis/index";
@@ -18,12 +18,12 @@ import Container from "@material-ui/core/Container";
 
 const SignUp = () => {
   const classes = useStyles();
+  const history = useHistory()
 
   const { register, handleSubmit } = useForm();
   const { dispatch } = useContext(AppContext);
 
   const onSubmit = async (formValue) => {
-    console.log(formValue);
     const res = await fetchSignUp(formValue);
     console.log(res);
 
@@ -36,6 +36,8 @@ const SignUp = () => {
           },
         })
       : console.log(res.data.error);
+    
+    history.push('/')
   };
 
   return (
@@ -97,11 +99,11 @@ const SignUp = () => {
               color="primary"
               className={classes.submit}
             >
-              <Link to={"/"}>Sign Up</Link>
+              Sign Up
             </Button>
             <Grid container justify="flex-end">
-              <Grid item>
-                <Link to={"/login"}>登録済みの方はこちらから</Link>
+              <Grid item onClick={() => {history.push('/LogIn')}}>
+                登録済みの方はこちらから
               </Grid>
             </Grid>
           </form>

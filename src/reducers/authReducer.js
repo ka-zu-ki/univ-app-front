@@ -1,6 +1,7 @@
 import { 
   SIGN_UP,
   LOG_IN,
+  LOGGED_IN,
   LOG_OUT
 } from "../actions";
 
@@ -9,7 +10,7 @@ export const initialState = {
     id: 0,
     email: "",
   }],
-  isLogin: false
+  isLogin: true
 }
 
 export const authReducer = (state = initialState, action) => {
@@ -24,10 +25,22 @@ export const authReducer = (state = initialState, action) => {
     case LOG_IN:
       return {
         ...state,
+        id: action.payload.id,
+        email: action.payload.email,
+        isLogin: true
+      }
+    case LOGGED_IN:
+      return {
+        ...state,
+        id: action.payload.id,
+        email: action.payload.email,
         isLogin: true
       }
     case LOG_OUT:
-      return state
+      return {
+        ...state,
+        isLogin: false
+      }
     default:
       return state
   }

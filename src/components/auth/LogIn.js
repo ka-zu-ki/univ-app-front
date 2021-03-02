@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import AppContext from "../../contexts/AppContext";
-import { fetchSignIn } from "../../apis/index";
+import { fetchLogIn } from "../../apis/index";
 import { LOG_IN } from "../../actions/index";
 
 import Avatar from "@material-ui/core/Avatar";
@@ -18,19 +18,26 @@ import Container from "@material-ui/core/Container";
 
 const LogIn = () => {
   const classes = useStyles();
+  const history = useHistory()
 
   const { register, handleSubmit } = useForm();
   const { dispatch } = useContext(AppContext);
 
   const onSubmit = async (formValue) => {
-    const res = await fetchSignIn(formValue);
+    const res = await fetchLogIn(formValue);
     console.log(res.data);
 
     res.status === 200
       ? dispatch({
           type: LOG_IN,
+          payload: {
+            id: res.data.id,
+            email: res.data.email,
+          },
         })
       : console.log("失敗");
+
+    // history.push('/layout')
   };
 
   return (
@@ -76,11 +83,11 @@ const LogIn = () => {
               color="primary"
               className={classes.submit}
             >
-              <Link to={"/"}>Log In</Link>
+              Log In
             </Button>
             <Grid container justify="flex-end">
-              <Grid item>
-                <Link to={"/sign_up"}>新規登録はこちらから</Link>
+              <Grid item onClick={() => {history.push('/SignUp')}}>
+                新規登録はこちらから
               </Grid>
             </Grid>
           </form>

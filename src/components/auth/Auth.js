@@ -7,6 +7,8 @@ import LogIn from './LogIn';
 const Auth = () => {
   const {state} = useContext(AppContext)
 
+  console.log(state.isLogin)
+
   return (
     <>
       {state.isLogin?

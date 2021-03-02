@@ -2,6 +2,8 @@ import axios from "axios";
 import {
   SIGN_UP_URL,
   LOG_IN_URL,
+  LOGGED_IN_URL,
+  LOG_OUT_URL,
   LESSONS_URL,
   LESSON_URL,
   CONDITIONAL_LESSON_URL,
@@ -16,23 +18,34 @@ export const fetchSignUp = (params) => {
         password: params.password,
         password_confirmation: params.passwordConfirmation,
       }
-    }
-    // { withCredentials: true } //cookieを含める
+    },
+    { withCredentials: true } //cookieを含める
   );
 };
 
-export const fetchSignIn = (params) => {
+export const fetchLogIn = (params) => {
   return axios.post(
     LOG_IN_URL,
     {
       user: {
         email: params.email,
-        password: params.password,
-        password_confirmation: params.passwordConfirmation,
+        password: params.password
       }
-    }
+    },
+    { withCredentials: true }
   );
 };
+
+export const fetchCheckLogin = (params) => {
+  return axios.get(
+    LOGGED_IN_URL,
+    { withCredentials: true }
+  )
+}
+
+export const fetchLogOut = () => {
+  return axios.delete(LOG_OUT_URL)
+}
 
 export const fetchLessons = () => {
   return axios.get(LESSONS_URL);
