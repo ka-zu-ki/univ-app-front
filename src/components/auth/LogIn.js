@@ -18,7 +18,7 @@ import Container from "@material-ui/core/Container";
 
 const LogIn = () => {
   const classes = useStyles();
-  const history = useHistory()
+  const history = useHistory();
 
   const { register, handleSubmit } = useForm();
   const { dispatch } = useContext(AppContext);
@@ -27,17 +27,20 @@ const LogIn = () => {
     const res = await fetchLogIn(formValue);
     console.log(res.data);
 
-    res.status === 200
-      ? dispatch({
-          type: LOG_IN,
-          payload: {
-            id: res.data.id,
-            email: res.data.email,
-          },
-        })
-      : console.log("失敗");
+    if (res.data.status !== 401) {
+      dispatch({
+        type: LOG_IN,
+        payload: {
+          id: res.data.id,
+          email: res.data.email,
+        },
+      });
+      history.push('/auth')
+    }
 
-    history.push('/')
+    if (res.data.status === 401) {
+      console.log('失敗')
+    }
   };
 
   return (
@@ -51,7 +54,11 @@ const LogIn = () => {
           <Typography component="h1" variant="h5">
             Log In
           </Typography>
-          <form className={classes.form} noValidate onSubmit={handleSubmit(onSubmit)}>
+          <form
+            className={classes.form}
+            noValidate
+            onSubmit={handleSubmit(onSubmit)}
+          >
             <TextField
               variant="outlined"
               margin="normal"
@@ -86,7 +93,12 @@ const LogIn = () => {
               Log In
             </Button>
             <Grid container justify="flex-end">
-              <Grid item onClick={() => {history.push('/SignUp')}}>
+              <Grid
+                item
+                onClick={() => {
+                  history.push("/SignUp");
+                }}
+              >
                 新規登録はこちらから
               </Grid>
             </Grid>

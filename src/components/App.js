@@ -14,6 +14,10 @@ import Registration from "./Registration";
 
 const App = () => {
   const [state, dispatch] = useReducer(authReducer, initialState);
+
+  useEffect(() => {
+    console.log(`ログイン状態：${state.isLogin}`)
+  }, [state.isLogin])
   
 
   return (

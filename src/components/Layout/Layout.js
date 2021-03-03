@@ -11,6 +11,7 @@ const Layout = () => {
   return (
     <>
       <Header />
+      <Home />
       <main>
         <Switch>
           <Route exact path="/" component={Home} />

@@ -5,6 +5,8 @@ import Layout from '../Layout/Layout';
 import LogIn from './LogIn';
 import { fetchCheckLogin } from "../../apis";
 import { LOGGED_IN } from "../../actions/index";
+import Home from '../Home';
+import Header from '../Layout/Header';
 
 const Auth = () => {
   const {state, dispatch } = useContext(AppContext)
@@ -19,12 +21,11 @@ const Auth = () => {
 
       dispatch({ type: LOGGED_IN });
       
-      console.log(state.isLogin);
-
       setLoading(false)
     };
-
+    
     fetchData();
+    console.log(state.isLogin);
   }, []);
 
   return (
@@ -33,7 +34,7 @@ const Auth = () => {
         <h1>ローディング中・・・</h1>) 
         : (
           state.isLogin?
-            <Layout />
+            <Home />
             :
             <LogIn />
         )}

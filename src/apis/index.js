@@ -7,6 +7,7 @@ import {
   LESSONS_URL,
   LESSON_URL,
   CONDITIONAL_LESSON_URL,
+  POST_LESSON_URL
 } from "../urls/index";
 
 export const fetchSignUp = (params) => {
@@ -63,3 +64,11 @@ export const fetchConditionalLessons = (week, time) => {
     },
   });
 };
+
+export const fetchPostLesson = (lesson_id, user_id) => {
+  return axios.post(POST_LESSON_URL + lesson_id, {
+    params: {
+      user_id: user_id
+    }
+  })
+}

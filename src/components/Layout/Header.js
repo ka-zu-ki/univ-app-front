@@ -16,14 +16,12 @@ const Header = () => {
   const { state, dispatch } = useContext(AppContext);
   const history = useHistory()
 
-  console.log(state.isLogin)
-
   const logOut = async () => {
     const res = await fetchLogOut()
     console.log(res.data)
     
     dispatch({ type: LOG_OUT })
-    history.push('/auth')
+    history.push('/login')
   }
 
   return (
