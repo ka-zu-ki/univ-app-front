@@ -1,9 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import AppContext from "../contexts/AppContext";
+import LogIn from './auth/LogIn';
 
 const Home = () => {
+  const {state} = useContext(AppContext)
+
   return (
     <>
-      <h1>Home</h1>
+      {
+        state.isLogin ?
+          <h1>Home</h1>
+        :
+          <LogIn/>
+      }
     </>
   );
 };

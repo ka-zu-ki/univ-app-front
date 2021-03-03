@@ -20,12 +20,10 @@ const Header = () => {
 
   const logOut = async () => {
     const res = await fetchLogOut()
-
-    if (res.data === 200) {
-      dispatch({ type: LOG_OUT })
-    }
-
-    history.push('/')
+    console.log(res.data)
+    
+    dispatch({ type: LOG_OUT })
+    history.push('/auth')
   }
 
   return (

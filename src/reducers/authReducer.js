@@ -10,7 +10,7 @@ export const initialState = {
     id: 0,
     email: "",
   }],
-  isLogin: true
+  isLogin: false
 }
 
 export const authReducer = (state = initialState, action) => {
@@ -32,8 +32,8 @@ export const authReducer = (state = initialState, action) => {
     case LOGGED_IN:
       return {
         ...state,
-        id: action.payload.id,
-        email: action.payload.email,
+        // id: action.payload.id,
+        // email: action.payload.email,
         isLogin: true
       }
     case LOG_OUT:

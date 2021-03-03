@@ -37,7 +37,7 @@ const LogIn = () => {
         })
       : console.log("失敗");
 
-    // history.push('/layout')
+    history.push('/')
   };
 
   return (
