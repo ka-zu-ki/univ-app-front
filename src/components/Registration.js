@@ -10,7 +10,7 @@ const Registration = () => {
   const [open, setOpen] = useState(false);
   const [lessons, setLessons] = useState([])
   const [loading, setLoading] = useState(false)
-  const [weeks] = useState(["Mon", "Tue", "Wed", "Thu", "Fri"])
+  const weeks = ["Mon", "Tue", "Wed", "Thu", "Fri"]
 
   const fetchData = async (week, time) => {
     setLoading(true)

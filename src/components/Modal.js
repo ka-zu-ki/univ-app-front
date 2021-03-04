@@ -45,6 +45,7 @@ const Modal = ({ open, setOpen, lessons, loading }) => {
                 </p>
               )) 
             )}
+            <button onClick={() => setOpen(false)}>キャンセル</button>
             <button onClick={() => handleClick()}>授業を選択する</button>
           </div>
         </div>
