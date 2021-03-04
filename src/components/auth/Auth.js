@@ -19,7 +19,13 @@ const Auth = () => {
       const res = await fetchCheckLogin();
       console.log(res.data);
 
-      dispatch({ type: LOGGED_IN });
+      dispatch({ 
+        type: LOGGED_IN,
+        payload: {
+          id: res.data.user.id,
+          email: res.data.user.email
+        }
+      });
       
       setLoading(false)
     };

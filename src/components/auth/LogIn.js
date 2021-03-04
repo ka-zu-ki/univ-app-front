@@ -31,8 +31,8 @@ const LogIn = () => {
       dispatch({
         type: LOG_IN,
         payload: {
-          id: res.data.id,
-          email: res.data.email,
+          id: res.data.user.id,
+          email: res.data.user.email,
         },
       });
       history.push('/auth')

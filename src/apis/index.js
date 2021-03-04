@@ -66,9 +66,5 @@ export const fetchConditionalLessons = (week, time) => {
 };
 
 export const fetchPostLesson = (lesson_id, user_id) => {
-  return axios.post(POST_LESSON_URL + lesson_id, {
-    params: {
-      user_id: user_id
-    }
-  })
+  return axios.post(POST_LESSON_URL + lesson_id, {user_id: user_id})
 }
