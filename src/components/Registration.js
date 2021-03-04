@@ -1,16 +1,21 @@
 /** @jsxImportSource @emotion/react */
 
-import React, { useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { css } from "@emotion/react";
 
 import Modal from "./Modal";
-import { fetchConditionalLessons } from "../apis"
+import { fetchConditionalLessons, fetchRegisteredLessons } from "../apis"
+import AppContext from "../contexts/AppContext";
 
 const Registration = () => {
   const [open, setOpen] = useState(false);
   const [lessons, setLessons] = useState([])
   const [loading, setLoading] = useState(false)
   const weeks = ["Mon", "Tue", "Wed", "Thu", "Fri"]
+  const {state, dispatch } = useContext(AppContext)
+  const userId = state.id
+  const [registeredLessons, setRegisteredLessons] = useState([])
+  console.log(userId)
 
   const fetchData = async (week, time) => {
     setLoading(true)
@@ -30,6 +35,18 @@ const Registration = () => {
     setOpen(true)
     fetchData(week, time)
   }
+
+  useEffect(() => {
+    const fetchLessons = async (userId) => {
+      const res = await fetchRegisteredLessons(userId)
+      const registeredLessons = res.data
+      console.log(res.data)
+      setRegisteredLessons(registeredLessons)
+      console.log(registeredLessons)
+    }
+    
+    fetchLessons(userId)
+  }, [])
 
   return (
     <>
