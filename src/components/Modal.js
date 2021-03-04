@@ -11,12 +11,18 @@ const Modal = ({ open, setOpen, lessons, loading }) => {
   const {state, dispatch } = useContext(AppContext)
   console.log(selected)
   console.log(state.id)
+
+  const postDate = async (selectedLessonId, userId) => {
+    const res = await fetchPostLesson(selectedLessonId, userId)
+    const registeredLesson = res.data
+    console.log(registeredLesson)
+  }
   
   const handleClick = () => {
     const selectedLessonId = selected
     const userId = state.id
-
-    fetchPostLesson(selectedLessonId, userId)
+    
+    postDate(selectedLessonId, userId)
     setOpen(false)
   }
 
