@@ -34,7 +34,7 @@ const Auth = () => {
         <h1>ローディング中・・・</h1>) 
         : (
           state.isLogin?
-            <Home />
+            <Layout />
             :
             <LogIn />
         )}

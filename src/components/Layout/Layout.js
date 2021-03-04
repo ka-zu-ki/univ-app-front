@@ -11,7 +11,7 @@ const Layout = () => {
   return (
     <>
       <Header />
-      <Home />
+      {/* <Home /> */}
       <main>
         <Switch>
           <Route exact path="/" component={Home} />
