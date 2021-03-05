@@ -11,6 +11,9 @@ import Home from "./Home";
 import Lessons from "./Lessons";
 import Syllabus from "./Syllabus";
 import Registration from "./Registration";
+import TimetableLesson from "./Mylesson";
+import TimetableLessons from "./TimetableLessons";
+import Mylesson from "./Mylesson";
 
 const App = () => {
   const [state, dispatch] = useReducer(authReducer, initialState);
@@ -35,6 +38,8 @@ const App = () => {
                 <Route exact path="/lessons" component={Lessons} />
                 <Route exact path="/lessons/:id" component={Syllabus} />
                 <Route exact path="/registration" component={Registration} />
+                <Route exact path="/timetableLessons" component={TimetableLessons} />
+                <Route exact path="/mylesson/:id" component={Mylesson} />
               </Switch>
             </Auth>
           </Switch>

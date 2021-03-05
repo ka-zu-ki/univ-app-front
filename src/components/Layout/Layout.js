@@ -6,6 +6,9 @@ import Syllabus from "../Syllabus";
 import Lessons from "../Lessons";
 import Registration from "../Registration";
 import Header from "./Header";
+import TimetableLesson from "../TimetableLessons";
+import TimetableLessons from "../TimetableLessons";
+import Mylesson from "../Mylesson";
 
 const Layout = () => {
   return (
@@ -18,7 +21,8 @@ const Layout = () => {
           <Route exact path="/lessons" component={Lessons} />
           <Route exact path="/lessons/:id" component={Syllabus} />
           <Route exact path="/Registration" component={Registration} />
-          <Route exact path="/lessons" component={Lessons} />
+          <Route exact path="/timetableLessons" component={TimetableLessons} />
+          <Route exact path="/mylesson/:id" component={Mylesson} />
         </Switch>
       </main>
     </>
