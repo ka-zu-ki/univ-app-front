@@ -46,7 +46,8 @@ export const fetchCheckLogin = (params) => {
 }
 
 export const fetchLogOut = () => {
-  return axios.delete(LOG_OUT_URL)
+  return axios.delete(LOG_OUT_URL),
+  { withCredentials: true }
 }
 
 export const fetchLessons = () => {

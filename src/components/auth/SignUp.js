@@ -31,8 +31,8 @@ const SignUp = () => {
       ? dispatch({
           type: SIGN_UP,
           payload: {
-            id: res.data.user.id,
-            email: res.data.user.email,
+            id: res.data.id,
+            email: res.data.email,
           },
         })
       : console.log(res.data.error);
