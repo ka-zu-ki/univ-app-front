@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 
 import { fetchRegisteredLesson } from "../apis";
 import AppContext from "../contexts/AppContext";
+import TodoList from './TodoList';
 
 const Mylesson = () => {
   const { id } = useParams();
@@ -41,11 +42,12 @@ const Mylesson = () => {
           教授
           <p>{lesson.professor}</p>
           時限
-          <p>{lesson.period}</p>
+          <p>{lesson.week}{lesson.time}</p>
           教室
           <p>{lesson.room}</p>
-          講義内容
-          <p>{lesson.content}</p>
+
+          <h2>Todo List</h2>
+            <TodoList myclass_id={lesson.id} user_id={userId}/>
         </>
       )}
     </>

@@ -1,5 +1,6 @@
 import axios from "axios";
 import {
+  BASE_URL,
   SIGN_UP_URL,
   LOG_IN_URL,
   LOGGED_IN_URL,
@@ -78,4 +79,13 @@ export const fetchRegisteredLessons = (user_id) => {
 
 export const fetchRegisteredLesson = (id, user_id) => {
   return axios.get(REGISTERED_LESSON_URL + id, {params: {user_id: user_id}})
+}
+
+export const fetchTodos = (myclass_id, user_id) => {
+  return axios.get(
+    BASE_URL + `/myclasses/${myclass_id}/todos`,
+    {params:
+      {user_id: user_id}
+    }
+  )
 }
