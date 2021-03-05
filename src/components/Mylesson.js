@@ -1,19 +1,22 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { useParams } from "react-router-dom";
 
-import { fetchLesson } from "../apis";
+import { fetchRegisteredLesson } from "../apis";
+import AppContext from "../contexts/AppContext";
 
 const Mylesson = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(null);
   const [lesson, setLesson] = useState([]);
+  const { state } = useContext(AppContext);
+  const userId = state.id;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
 
-        const res = await fetchLesson(id);
+        const res = await fetchRegisteredLesson(id, userId);
         const lesson = res.data;
         setLesson(lesson);
 
@@ -32,7 +35,7 @@ const Mylesson = () => {
         <h1>ローディング中</h1>
       ) : (
         <>
-          <h1>シラバス</h1>
+          <h1>シラバス(Mylesson)</h1>
           講義名
           <p>{lesson.name}</p>
           教授

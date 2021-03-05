@@ -8,7 +8,8 @@ import {
   LESSON_URL,
   CONDITIONAL_LESSON_URL,
   POST_LESSON_URL,
-  REGISTERED_LESSONS_URL
+  REGISTERED_LESSONS_URL,
+  REGISTERED_LESSON_URL
 } from "../urls/index";
 
 export const fetchSignUp = (params) => {
@@ -73,4 +74,8 @@ export const fetchPostLesson = (lesson_id, user_id) => {
 
 export const fetchRegisteredLessons = (user_id) => {
   return axios.get(REGISTERED_LESSONS_URL, {params: {user_id: user_id}})
+}
+
+export const fetchRegisteredLesson = (id, user_id) => {
+  return axios.get(REGISTERED_LESSON_URL + id, {params: {user_id: user_id}})
 }

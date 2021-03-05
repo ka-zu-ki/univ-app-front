@@ -9,3 +9,4 @@ export const LESSON_URL = `${BASE_URL}/lessons/`
 export const CONDITIONAL_LESSON_URL = `${BASE_URL}/time_table_lessons`
 export const POST_LESSON_URL = `${BASE_URL}/myclasses/lessons/`
 export const REGISTERED_LESSONS_URL = `${BASE_URL}/myclasses`
+export const REGISTERED_LESSON_URL = `${BASE_URL}/myclasses/`
