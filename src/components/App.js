@@ -15,6 +15,7 @@ import TimetableLessons from "./TimetableLessons";
 import Mylesson from "./Mylesson";
 import CreateTodo from "./CreateTodo";
 import TodoList from "./TodoList";
+import EditTodo from "./EditTodo";
 
 const App = () => {
   const [state, dispatch] = useReducer(authReducer, initialState);
@@ -43,6 +44,7 @@ const App = () => {
                 <Route exact path="/mylesson/:id" component={Mylesson} />
                 <Route exact path="/mylesson/todoList" component={TodoList} />
                 <Route exact path="/mylesson/:id/new_todo" component={CreateTodo} />
+                {/* <Route exact path="/mylesson/:id/edit_todo" component={EditTodo} /> */}
               </Switch>
             </Auth>
           </Switch>

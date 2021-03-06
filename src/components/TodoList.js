@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from "react-router-dom";
 
-import { fetchTodos, deleteTodo, deleteTodos } from "../apis";
+import { 
+  fetchTodos,
+  deleteTodo,
+  deleteTodos,
+} from "../apis";
 
 const TodoList = ({ id, user_id }) => {
   const [todos, setTodos] = useState([])
   const history = useHistory()
-  const todoId = todos.id
-  console.log(todoId)
 
   useEffect(() => {
     let unmounted = false
@@ -51,6 +53,17 @@ const TodoList = ({ id, user_id }) => {
             <li>
               {todo.name}
               <button onClick={() => handleClickDelete(todo.id)}>削除</button>
+              <button onClick={() => 
+                history.push(`/mylesson/${id}/edit_todo`,
+                { 
+                  name: todo.name,
+                  todoId: todo.id
+                }
+        )
+                
+              }>
+                編集
+              </button>
             </li>
           </React.Fragment>
         ))}

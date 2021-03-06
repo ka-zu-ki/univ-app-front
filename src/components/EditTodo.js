@@ -1,31 +1,33 @@
-import React, { useContext, useState } from 'react'
-import { useParams, useHistory } from "react-router-dom";
+import React, { useContext, useEffect, useState } from 'react'
+import { useParams, useHistory, useLocation } from "react-router-dom";
 
-import { postTodo } from "../apis";
+import { updateTodo } from '../apis';
 import AppContext from "../contexts/AppContext";
 
-const CreateTodo = () => {
-  const [content, setContent] = useState('')
+const EditTodo = () => {
+  const location = useLocation()
+  const [content, setContent] = useState(location.state.name)
   const { state } = useContext(AppContext);
   const { id } = useParams();
   const userId = state.id;
+  const todoId = location.state.todoId
   const history = useHistory()
   
-  const postNewTodo = async (id, userId, content) => {
-    await postTodo(id, userId, content)
+  const update = (id, todoId, userId, content) => {
+    updateTodo(id, todoId, userId, content)
   }
 
   const handleClick = (e) => {
     e.preventDefault()
 
-    postNewTodo(id, userId, content)
+    update(id, todoId, userId, content)
 
     history.goBack();
   }
-  
+
   return (
     <>
-      <h1>New Todo</h1>
+      <h1>Edit</h1>
 
       <form>
         <input 
@@ -39,4 +41,4 @@ const CreateTodo = () => {
   )
 }
 
-export default CreateTodo
+export default EditTodo

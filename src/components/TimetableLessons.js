@@ -14,14 +14,24 @@ const TimetableLessons = () => {
   const userId = state.id;
 
   useEffect(() => {
+    let unmounted = false
+
     const fetchLessons = async (userId) => {
       const res = await fetchRegisteredLessons(userId);
       const registeredLessons = res.data;
   
-      setRegisteredLessons(registeredLessons);
+      if (!unmounted) {
+        setRegisteredLessons(registeredLessons);
+      }
     };
 
     fetchLessons(userId);
+
+    const cleanup = () => {
+      unmounted = true
+    }
+
+    return cleanup
   }, [userId]);
 
   return (
