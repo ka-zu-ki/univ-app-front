@@ -72,7 +72,7 @@ const Registration = () => {
                   registeredLesson.time === 1 ? (
                     <p key={registeredLesson.id}>{registeredLesson.name}</p>
                   ) : (
-                    <></>
+                    <div key={registeredLesson.id}></div>
                   )
                 ))}
               </td>
@@ -91,7 +91,7 @@ const Registration = () => {
                   registeredLesson.time === 2 ? (
                     <p key={registeredLesson.id}>{registeredLesson.name}</p>
                   ) : (
-                    <></>
+                    <div key={registeredLesson.id}></div>
                   )
                 ))}
               </td>
@@ -110,7 +110,7 @@ const Registration = () => {
                   registeredLesson.time === 3 ? (
                     <p key={registeredLesson.id}>{registeredLesson.name}</p>
                   ) : (
-                    <></>
+                    <div key={registeredLesson.id}></div>
                   )
                 ))}
               </td>
@@ -129,7 +129,7 @@ const Registration = () => {
                   registeredLesson.time === 4 ? (
                     <p key={registeredLesson.id}>{registeredLesson.name}</p>
                   ) : (
-                    <></>
+                    <div key={registeredLesson.id}></div>
                   )
                 ))}
               </td>
@@ -148,7 +148,7 @@ const Registration = () => {
                   registeredLesson.time === 5 ? (
                     <p key={registeredLesson.id}>{registeredLesson.name}</p>
                   ) : (
-                    <></>
+                    <div key={registeredLesson.id}></div>
                   )
                 ))}
               </td>

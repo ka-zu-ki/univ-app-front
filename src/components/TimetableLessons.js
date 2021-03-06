@@ -53,7 +53,7 @@ const TimetableLessons = () => {
                       </Link>
                     </p>
                   ) : (
-                    <p key={index}></p>
+                    <div key={registeredLesson.id}></div>
                   )
                 )}
               </td>
@@ -72,7 +72,7 @@ const TimetableLessons = () => {
                       </Link>
                     </p>
                   ) : (
-                    <></>
+                    <div key={registeredLesson.id}></div>
                   )
                 )}
               </td>
@@ -91,7 +91,7 @@ const TimetableLessons = () => {
                       </Link>
                     </p>
                   ) : (
-                    <></>
+                    <div key={registeredLesson.id}></div>
                   )
                 )}
               </td>
@@ -110,7 +110,7 @@ const TimetableLessons = () => {
                       </Link>
                     </p>
                   ) : (
-                    <></>
+                    <div key={registeredLesson.id}></div>
                   )
                 )}
               </td>
@@ -129,7 +129,7 @@ const TimetableLessons = () => {
                       </Link>
                     </p>
                   ) : (
-                    <></>
+                    <div key={registeredLesson.id}></div>
                   )
                 )}
               </td>

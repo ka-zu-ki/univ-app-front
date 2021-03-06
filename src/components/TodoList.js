@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from "react-router-dom";
 
-import { fetchTodos } from "../apis";
+import { fetchTodos, deleteTodo, deleteTodos } from "../apis";
 
 const TodoList = ({ id, user_id }) => {
   const [todos, setTodos] = useState([])
   const history = useHistory()
-
-  console.log(id)
+  const todoId = todos.id
+  console.log(todoId)
 
   useEffect(() => {
     let unmounted = false
@@ -30,12 +30,33 @@ const TodoList = ({ id, user_id }) => {
     return cleanup
   }, [id, user_id])
 
+  const handleClickDelete = (todoId) => {
+    deleteTodo(id, todoId)
+    
+    const newTodo = todos.filter((todo) => todo.id !== todoId)
+    setTodos(newTodo)
+  }
+
+  const handleClickDeleteAll = () => {
+    deleteTodos(id, user_id)
+
+    setTodos([])
+  }
+
   return (
     <>
       <ul>
-        {todos.map((todo) => <li key={todo.id}>{todo.name}</li>)}
+        {todos.map((todo) => (
+          <React.Fragment key={todo.id}>
+            <li>
+              {todo.name}
+              <button onClick={() => handleClickDelete(todo.id)}>削除</button>
+            </li>
+          </React.Fragment>
+        ))}
       </ul>
 
+      <button onClick={handleClickDeleteAll}>全て削除</button>
       <button 
         onClick={() => {
           history.push(`/mylesson/${id}/new_todo`)

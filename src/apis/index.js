@@ -99,3 +99,14 @@ export const postTodo = (myclass_id, user_id, content) => {
       user_id: user_id
     })
 }
+
+export const deleteTodo = (myclass_id, id) => {
+  return axios.delete(BASE_URL + `/myclasses/${myclass_id}/todos/${id}`)
+}
+
+export const deleteTodos = (myclass_id, user_id) => {
+  return axios.delete(
+    BASE_URL + `/myclasses/${myclass_id}/todos`, 
+    {params: {user_id: user_id}}
+  )
+}

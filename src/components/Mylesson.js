@@ -13,13 +13,18 @@ const Mylesson = () => {
   const userId = state.id;
 
   useEffect(() => {
-    const fetchData = async () => {
+    let unmounted = false
+
+    const fetchData = async () => {  
       try {
         setLoading(true);
 
         const res = await fetchRegisteredLesson(id, userId);
         const lesson = res.data;
-        setLesson(lesson);
+
+        if (!unmounted) {
+          setLesson(lesson);
+        }
 
         setLoading(false);
       } catch {
@@ -28,6 +33,12 @@ const Mylesson = () => {
     };
 
     fetchData();
+
+    const cleanup = () => {
+      unmounted = true
+    }
+
+    return cleanup
   }, [id, userId]);
 
   return (
