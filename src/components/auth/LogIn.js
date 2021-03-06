@@ -23,11 +23,12 @@ const LogIn = () => {
   const { register, handleSubmit } = useForm();
   const { dispatch } = useContext(AppContext);
 
+  
   const onSubmit = async (formValue) => {
     const res = await fetchLogIn(formValue);
     console.log(res.data);
 
-    if (res.data.status !== 401) {
+    if (res.status === 200) {
       dispatch({
         type: LOG_IN,
         payload: {
@@ -38,7 +39,7 @@ const LogIn = () => {
       history.push('/auth')
     }
 
-    if (res.data.status === 401) {
+    if (res.status === 401) {
       console.log('失敗')
     }
   };

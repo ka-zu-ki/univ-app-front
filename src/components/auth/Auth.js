@@ -16,21 +16,23 @@ const Auth = () => {
   
       const res = await fetchCheckLogin();
       console.log(res.data);
-  
-      dispatch({ 
-        type: LOGGED_IN,
-        payload: {
-          id: res.data.user.id,
-          email: res.data.user.email
-        }
-      });
+
+      if (res.status === 200) { 
+        dispatch({ 
+          type: LOGGED_IN,
+          payload: {
+            id: res.data.user.id,
+            email: res.data.user.email
+          }
+        });
+      }
       
       setLoading(false)
     };
 
     fetchData();
     console.log(state.isLogin);
-  }, [dispatch, state.isLogin]);
+  }, []);
 
   return (
     <>
