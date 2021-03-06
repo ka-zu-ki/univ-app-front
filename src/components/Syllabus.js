@@ -12,11 +12,11 @@ const Syllabus = () => {
     const fetchData = async () => {
       try {
         setLoading(true);
-
+  
         const res = await fetchLesson(id);
         const lesson = res.data;
         setLesson(lesson);
-
+  
         setLoading(false);
       } catch {
         console.log("失敗");

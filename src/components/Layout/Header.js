@@ -13,7 +13,7 @@ import { useHistory } from "react-router-dom";
 
 const Header = () => {
   const classes = useStyles();
-  const { state, dispatch } = useContext(AppContext);
+  const { dispatch } = useContext(AppContext);
   const history = useHistory()
 
   const logOut = async () => {

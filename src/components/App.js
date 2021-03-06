@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import AppContext from "../contexts/AppContext";
@@ -11,9 +11,10 @@ import Home from "./Home";
 import Lessons from "./Lessons";
 import Syllabus from "./Syllabus";
 import Registration from "./Registration";
-import TimetableLesson from "./Mylesson";
 import TimetableLessons from "./TimetableLessons";
 import Mylesson from "./Mylesson";
+import CreateTodo from "./CreateTodo";
+import TodoList from "./TodoList";
 
 const App = () => {
   const [state, dispatch] = useReducer(authReducer, initialState);
@@ -40,6 +41,8 @@ const App = () => {
                 <Route exact path="/registration" component={Registration} />
                 <Route exact path="/timetableLessons" component={TimetableLessons} />
                 <Route exact path="/mylesson/:id" component={Mylesson} />
+                <Route exact path="/mylesson/todoList" component={TodoList} />
+                <Route exact path="/mylesson/:id/new_todo" component={CreateTodo} />
               </Switch>
             </Auth>
           </Switch>

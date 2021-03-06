@@ -8,7 +8,7 @@ import { fetchPostLesson } from "../apis";
 
 const Modal = ({ open, setOpen, lessons, loading }) => {
   const [selected, setSelected] = useState([])
-  const {state, dispatch } = useContext(AppContext)
+  const {state } = useContext(AppContext)
   console.log(selected)
   console.log(state.id)
 

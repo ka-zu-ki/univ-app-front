@@ -28,7 +28,7 @@ const Mylesson = () => {
     };
 
     fetchData();
-  }, []);
+  }, [id, userId]);
 
   return (
     <>
@@ -47,7 +47,7 @@ const Mylesson = () => {
           <p>{lesson.room}</p>
 
           <h2>Todo List</h2>
-            <TodoList myclass_id={lesson.id} user_id={userId}/>
+            <TodoList id={id} user_id={userId}/>
         </>
       )}
     </>

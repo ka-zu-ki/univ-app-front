@@ -8,21 +8,21 @@ const Lessons = () => {
   const [loading, setLoading] = useState(null);
   const [lessons, setLessons] = useState([]);
 
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+
+      const res = await fetchLessons();
+      const lessons = res.data;
+      setLessons(lessons);
+
+      setLoading(false);
+    } catch {
+      console.log("失敗");
+    }
+  };
+
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-
-        const res = await fetchLessons();
-        const lessons = res.data;
-        setLessons(lessons);
-
-        setLoading(false);
-      } catch {
-        console.log("失敗");
-      }
-    };
-
     fetchData();
   }, []);
 

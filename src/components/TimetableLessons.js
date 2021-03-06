@@ -17,12 +17,12 @@ const TimetableLessons = () => {
     const fetchLessons = async (userId) => {
       const res = await fetchRegisteredLessons(userId);
       const registeredLessons = res.data;
-
+  
       setRegisteredLessons(registeredLessons);
     };
 
     fetchLessons(userId);
-  }, []);
+  }, [userId]);
 
   return (
     <>
@@ -42,19 +42,18 @@ const TimetableLessons = () => {
             <th>1</th>
             {weeks.map((week, index) => (
               <td key={index} css={tdCss}>
-                {registeredLessons.map((registeredLesson) =>
+                {registeredLessons.map((registeredLesson, index) =>
                   registeredLesson.week === week &&
                   registeredLesson.time === 1 ? (
                     <p 
                       key={registeredLesson.id}
-                      
                     >
                       <Link to={`/mylesson/${registeredLesson.id}`} key={registeredLesson.id}>
                         {registeredLesson.name}
                       </Link>
                     </p>
                   ) : (
-                    <></>
+                    <p key={index}></p>
                   )
                 )}
               </td>
