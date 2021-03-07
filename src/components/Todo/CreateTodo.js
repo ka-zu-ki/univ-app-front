@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { useParams, useHistory } from "react-router-dom";
 
-import { postTodo } from "../apis";
-import AppContext from "../contexts/AppContext";
+import { postTodo } from "../../apis";
+import AppContext from "../../contexts/AppContext";
 
 const CreateTodo = () => {
   const [content, setContent] = useState('')

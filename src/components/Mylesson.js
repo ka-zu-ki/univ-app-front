@@ -3,7 +3,8 @@ import { useParams } from "react-router-dom";
 
 import { fetchRegisteredLesson } from "../apis";
 import AppContext from "../contexts/AppContext";
-import TodoList from './TodoList';
+import TodoList from './Todo/TodoList';
+
 
 const Mylesson = () => {
   const { id } = useParams();

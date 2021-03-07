@@ -8,8 +8,9 @@ import Registration from "../Registration";
 import Header from "./Header";
 import TimetableLessons from "../TimetableLessons";
 import Mylesson from "../Mylesson";
-import CreateTodo from "../CreateTodo";
-import EditTodo from "../EditTodo";
+import EditTodo from "../Todo/EditTodo";
+import CreateTodo from "../Todo/CreateTodo";
+import TodoList from "../Todo/TodoList";
 
 const Layout = () => {
   return (

@@ -5,7 +5,7 @@ import {
   fetchTodos,
   deleteTodo,
   deleteTodos,
-} from "../apis";
+} from "../../apis";
 
 const TodoList = ({ id, user_id }) => {
   const [todos, setTodos] = useState([])

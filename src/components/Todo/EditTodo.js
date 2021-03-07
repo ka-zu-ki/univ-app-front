@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
 import { useParams, useHistory, useLocation } from "react-router-dom";
 
-import { updateTodo } from '../apis';
-import AppContext from "../contexts/AppContext";
+import { updateTodo } from '../../apis';
+import AppContext from "../../contexts/AppContext";
 
 const EditTodo = () => {
   const location = useLocation()
