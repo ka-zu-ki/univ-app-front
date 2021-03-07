@@ -28,7 +28,7 @@ const LogIn = () => {
     const res = await fetchLogIn(formValue);
     console.log(res.data);
 
-    if (res.status === 200) {
+    if (res.data.status === 200) {
       dispatch({
         type: LOG_IN,
         payload: {
@@ -36,10 +36,10 @@ const LogIn = () => {
           email: res.data.user.email,
         },
       });
-      history.push('/auth')
+      history.push('/')
     }
 
-    if (res.status === 401) {
+    if (res.data.status === 401) {
       console.log('失敗')
     }
   };

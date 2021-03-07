@@ -33,17 +33,21 @@ const App = () => {
             <Route exact path="/login" component={LogIn} />
             <Route exact path="/signUp" component={SignUp} />
             <Route exact path="/" component={Auth} />
+            <Route path="/layout" component={Layout} />
             <Auth>
               <Switch>
-                <Route path="/layout" component={Layout} />
-                <Route exact path="/home" component={Home} />
-                <Route exact path="/lessons" component={Lessons} />
-                <Route exact path="/lessons/:id" component={Syllabus} />
-                <Route exact path="/registration" component={Registration} />
-                <Route exact path="/timetableLessons" component={TimetableLessons} />
-                <Route exact path="/mylesson/:id" component={Mylesson} />
-                <Route exact path="/mylesson/todoList" component={TodoList} />
-                <Route exact path="/mylesson/:id/new_todo" component={CreateTodo} />
+                {/* <Route path="/layout" component={Layout} /> */}
+                <Layout>
+
+                  <Route exact path="/home" component={Home} />
+                  <Route exact path="/lessons" component={Lessons} />
+                  <Route exact path="/lessons/:id" component={Syllabus} />
+                  <Route exact path="/registration" component={Registration} />
+                  <Route exact path="/timetableLessons" component={TimetableLessons} />
+                  <Route exact path="/mylesson/:id" component={Mylesson} />
+                  <Route exact path="/mylesson/todoList" component={TodoList} />
+                  <Route exact path="/mylesson/:id/new_todo" component={CreateTodo} />
+                </Layout>
                 {/* <Route exact path="/mylesson/:id/edit_todo" component={EditTodo} /> */}
               </Switch>
             </Auth>

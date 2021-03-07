@@ -11,13 +11,13 @@ const Auth = () => {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    setLoading(true)
     const fetchData = async () => {
-      setLoading(true)
   
       const res = await fetchCheckLogin();
       console.log(res.data);
 
-      if (res.status === 200) { 
+      if (res.data.status === 200) {
         dispatch({ 
           type: LOGGED_IN,
           payload: {
@@ -26,10 +26,9 @@ const Auth = () => {
           }
         });
       }
-      
       setLoading(false)
     };
-
+    
     fetchData();
     console.log(state.isLogin);
   }, []);
