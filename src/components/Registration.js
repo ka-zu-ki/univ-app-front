@@ -1,11 +1,12 @@
 /** @jsxImportSource @emotion/react */
 
 import React, { useEffect, useState, useContext } from "react";
-import { css } from "@emotion/react";
 
 import Modal from "./Modal";
 import { fetchConditionalLessons, fetchRegisteredLessons } from "../apis";
 import AppContext from "../contexts/AppContext";
+
+import { tableCss, tdCss } from "./Style/Object/Component/table";
 
 const Registration = () => {
   const [open, setOpen] = useState(false);
@@ -183,14 +184,3 @@ const Registration = () => {
 };
 
 export default Registration;
-
-const tableCss = css`
-  width: 800px;
-  height: 500px;
-  margin: 0 auto;
-  margin-top: 50px;
-`;
-
-const tdCss = css`
-  background-color: #f5f5f5;
-`;

@@ -1,11 +1,12 @@
 /** @jsxImportSource @emotion/react */
 
 import React, { useContext, useEffect, useState } from "react";
-import { css } from "@emotion/react";
 import { Link } from "react-router-dom";
 
 import { fetchRegisteredLessons } from "../apis";
 import AppContext from "../contexts/AppContext";
+
+import { tableCss, tdCss } from "./Style/Object/Component/table";
 
 const TimetableLessons = () => {
   const weeks = ["Mon", "Tue", "Wed", "Thu", "Fri"];
@@ -152,14 +153,3 @@ const TimetableLessons = () => {
 };
 
 export default TimetableLessons;
-
-const tableCss = css`
-  width: 800px;
-  height: 500px;
-  margin: 0 auto;
-  margin-top: 50px;
-`;
-
-const tdCss = css`
-  background-color: #f5f5f5;
-`;
