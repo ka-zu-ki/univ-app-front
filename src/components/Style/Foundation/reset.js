@@ -1,4 +1,5 @@
 import { css } from "@emotion/react";
+import { color } from "../_variables";
 
 export const resetCss = css`
   /*
@@ -108,6 +109,9 @@ Twitter: @rich_clark
   nav ul {
     list-style: none;
   }
+  ul {
+    list-style: none;
+  }
 
   blockquote,
   q {
@@ -128,6 +132,8 @@ Twitter: @rich_clark
     font-size: 100%;
     vertical-align: baseline;
     background: transparent;
+    text-decoration: none;
+    color: ${color.black}
   }
 
   /* change colours to suit your needs */

@@ -1,18 +1,22 @@
+/** @jsxImportSource @emotion/react */
+
 import React, { useContext } from "react";
+import { useHistory } from "react-router-dom";
 
 import { fetchLogOut } from "../../apis";
 import AppContext from "../../contexts/AppContext";
 import { LOG_OUT } from "../../actions/index";
 
-import { makeStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import { useHistory } from "react-router-dom";
+import { 
+  headerCss,
+  headerLeftCss,
+  headerRightCss,
+  headerUlCss,
+  headerLiCss,
+  headerBorderCss
+} from "../Style/Layout/header";
 
 const Header = () => {
-  const classes = useStyles();
   const { dispatch } = useContext(AppContext);
   const history = useHistory()
 
@@ -25,35 +29,27 @@ const Header = () => {
   }
 
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <Typography 
-          variant="h6" 
-          className={classes.title}
-          onClick={() => {history.push('/')}}
-        >
-          University App
-        </Typography>
-        <ul>
-          <li onClick={() => {history.push('/lessons')}}>授業一覧</li>
-          <li onClick={() => {history.push('/registration')}}>履修登録</li>
-        </ul>
-        <Button color="inherit" onClick={() => logOut()}>Logout</Button>
-      </Toolbar>
-    </AppBar>
+    <>
+      <header>
+        <div css={headerCss}>
+          <div 
+            css={headerLeftCss}
+            onClick={() => {history.push('/')}}
+            >
+            University App
+          </div>
+          <div css={headerRightCss}>
+            <ul css={headerUlCss}>
+              <li css={headerLiCss} onClick={() => {history.push('/lessons')}}>授業一覧</li>
+              <li css={headerLiCss} onClick={() => {history.push('/registration')}}>履修登録</li>
+              <li onClick={() => logOut()}>ログアウト</li>
+            </ul>
+          </div>
+        </div>
+        <div css={headerBorderCss}></div>
+      </header>
+    </>
   );
 };
 
 export default Header;
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
-}));

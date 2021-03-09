@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { fetchLessons } from "../apis/index";
-// import {  } from "../reducers/lessonsReducer";
+
+import { pageTitleCss } from "../components/Style/Object/Component/title";
+import { innerCss } from "../components/Style/Layout/main";
 
 const Lessons = () => {
   const [loading, setLoading] = useState(null);
@@ -27,8 +29,8 @@ const Lessons = () => {
   }, []);
 
   return (
-    <>
-      <h1>授業一覧ページ</h1>
+    <div css={innerCss}>
+      <div css={pageTitleCss}>授業一覧ページ</div>
       {loading ? (
         <h2>ローディング中</h2>
       ) : (
@@ -46,7 +48,7 @@ const Lessons = () => {
           </Link>
         ))
       )}
-    </>
+    </div>
   );
 };
 
