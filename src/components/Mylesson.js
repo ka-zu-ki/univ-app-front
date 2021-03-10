@@ -1,3 +1,5 @@
+/** @jsxImportSource @emotion/react */
+
 import React, { useEffect, useState, useContext } from 'react'
 import { useParams } from "react-router-dom";
 
@@ -5,6 +7,9 @@ import { fetchRegisteredLesson } from "../apis";
 import AppContext from "../contexts/AppContext";
 import TodoList from './Todo/TodoList';
 
+import { pageTitleCss, sectionTitleCss } from "../components/Style/Object/Component/title";
+import { innerCss } from "../components/Style/Layout/main";
+import { marginTop10Css } from "../components/Style/Object/Utility/margin";
 
 const Mylesson = () => {
   const { id } = useParams();
@@ -48,18 +53,18 @@ const Mylesson = () => {
         <h1>ローディング中</h1>
       ) : (
         <>
-          <h1>シラバス(Mylesson)</h1>
-          講義名
-          <p>{lesson.name}</p>
-          教授
-          <p>{lesson.professor}</p>
-          時限
-          <p>{lesson.week}{lesson.time}</p>
-          教室
-          <p>{lesson.room}</p>
-
-          <h2>Todo List</h2>
-            <TodoList id={id} user_id={userId}/>
+          <div css={innerCss}>
+            <div css={pageTitleCss}>{lesson.week}{lesson.time}限</div>
+            <div css={sectionTitleCss}>講義名</div>
+            <p css={marginTop10Css}>{lesson.name}</p>
+            <div css={sectionTitleCss}>教授</div>
+            <p css={marginTop10Css}>{lesson.professor}</p>
+            <div css={sectionTitleCss}>時限</div>
+            <p css={marginTop10Css}>{lesson.week}{lesson.time}</p>
+            <div css={sectionTitleCss}>教室</div>
+            <p css={marginTop10Css}>{lesson.room}</p>
+          </div>
+          <TodoList id={id} user_id={userId}/>
         </>
       )}
     </>

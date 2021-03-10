@@ -5,6 +5,8 @@ export const layoutCss = css`
   background-color: ${color.gray};
   width: 1400px;
   margin: 0 auto;
+  padding-bottom: 50px;
+  min-height: 800px;
 `
 
 export const innerCss = css`
