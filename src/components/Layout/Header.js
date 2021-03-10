@@ -42,7 +42,7 @@ const Header = () => {
             <ul css={headerUlCss}>
               <li css={headerLiCss} onClick={() => {history.push('/lessons')}}>授業一覧</li>
               <li css={headerLiCss} onClick={() => {history.push('/registration')}}>履修登録</li>
-              <li onClick={() => logOut()}>ログアウト</li>
+              <li css={headerLiCss} onClick={() => logOut()}>ログアウト</li>
             </ul>
           </div>
         </div>

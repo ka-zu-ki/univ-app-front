@@ -27,3 +27,38 @@ export const thWeekCss = css`
   height: 30px;
   border: 1px ${color.black} solid;
 `
+
+export const lessonsTableCss = css`
+  width: 1120px;
+  margin-top: 50px;
+  border: 1px ${color.black} solid
+`
+
+export const lessonsThCss = css`
+  width: 35%;
+  height: 50px;
+  text-align: left;
+  vertical-align: middle;
+`
+
+export const lessonsThLeftCss = css`
+  padding-left: 30px;
+`
+
+export const lessonsTdCss = css`
+  width: 35%;
+  height: 40px;
+  text-align: left;
+  vertical-align: middle;
+`
+
+export const lessonsTrCss = css`
+  border-bottom: 1px ${color.black} solid;
+`
+
+export const lessonsSellMini = css`
+  width: 15%;
+  height: 30px;
+  text-align: left;
+  vertical-align: middle;
+`

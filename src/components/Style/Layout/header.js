@@ -17,6 +17,7 @@ export const headerLeftCss = css`
   font-size: 18px;
   font-weight: 600;
   margin-left: 36px;
+  cursor: pointer;
 `
 
 export const headerRightCss = css`
@@ -31,6 +32,7 @@ export const headerUlCss = css`
 
 export const headerLiCss = css`
   margin-right: 20px;
+  cursor: pointer;
 `
 
 export const headerBorderCss = css`
