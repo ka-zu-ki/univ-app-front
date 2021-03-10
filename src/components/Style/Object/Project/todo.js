@@ -11,6 +11,7 @@ export const unCompletedTodoCss = css`
 
 export const todoIconCss = css`
   margin-left: 10px;
+  cursor: pointer;
 `
 
 export const todoInputCss = css`

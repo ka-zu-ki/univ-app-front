@@ -16,5 +16,5 @@ export const innerCss = css`
 export const bgWhiteCss = css`
   background-color: ${color.white};
   padding: 30px 100px; 
-  margin-top: 10px
+  margin-top: 10px;
 `

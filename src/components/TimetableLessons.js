@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 
 import { fetchRegisteredLessons } from "../apis";
 import AppContext from "../contexts/AppContext";
-import { bgWhiteCss } from "./Style/Layout/main";
 
+import { bgWhiteCss } from "./Style/Layout/main";
 import { 
   tableCss,
   tdCss, 
@@ -42,7 +42,6 @@ const TimetableLessons = () => {
   }, [userId]);
 
   return (
-    
       <div css={bgWhiteCss}>
         <table css={tableCss}>
           <thead>

@@ -26,3 +26,9 @@ export const createButton = css`
   border: 1px solid ${color.blue};
   background-color: ${color.blue};
 `
+
+export const createButtonLong = css`
+  ${createButton}
+  width: 280px;
+  margin: 50px 0 0 840px;
+`
