@@ -16,12 +16,12 @@ import {
 
 import { pageTitleCss, sectionTitleCss } from "../../components/Style/Object/Component/title";
 import { innerCss } from "../Style/Layout/main";
-import { marginTop10Css, marginTop30Css } from "../../components/Style/Object/Utility/margin";
+import { marginTop30Css } from "../../components/Style/Object/Utility/margin";
 import { 
   completedTodoCss,
   unCompletedTodoCss,
   todoIconCss,
-  todoInputCss
+  todoCheckCss
 } from "../Style/Object/Project/todo";
 import { deleteButton, createButton } from "../Style/Object/Component/button";
 
@@ -85,7 +85,7 @@ const TodoList = ({ id, user_id }) => {
                   <li css={marginTop30Css}>
                     <input
                       type="checkbox"
-                      css={todoInputCss}
+                      css={todoCheckCss}
                       value={todo}
                       onClick={() => handleClick(todo, index)}
                     />
@@ -124,7 +124,7 @@ const TodoList = ({ id, user_id }) => {
                   <li css={marginTop30Css}>
                     <input
                       type="checkbox"
-                      css={todoInputCss}
+                      css={todoCheckCss}
                       value={todo.name}
                       onClick={() => handleClick(todo, index)}
                       checked="checked"

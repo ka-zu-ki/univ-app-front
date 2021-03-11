@@ -1,8 +1,15 @@
+/** @jsxImportSource @emotion/react */
+
 import React, { useContext, useState } from 'react'
 import { useParams, useHistory } from "react-router-dom";
 
 import { postTodo } from "../../apis";
 import AppContext from "../../contexts/AppContext";
+
+import { innerCss } from "../Style/Layout/main";
+import { pageTitleCss } from "../Style/Object/Component/title";
+import { todoFormCss } from "../Style/Object/Project/todo";
+import { todoButtonCss, disabledButtonBlue } from "../Style/Object/Component/button";
 
 const CreateTodo = () => {
   const [content, setContent] = useState('')
@@ -24,18 +31,24 @@ const CreateTodo = () => {
   }
   
   return (
-    <>
-      <h1>New Todo</h1>
-
+    <div css={innerCss}>
+      <div css={pageTitleCss}>New Todo</div>
       <form>
         <input 
+          css={todoFormCss}
           type="text"
           value={content}
           onChange={e => setContent(e.target.value)}
-        />
-        <button onClick={handleClick}>create</button>
+          />
+        <button
+          css={[todoButtonCss, !content && disabledButtonBlue]}
+          disabled={!content}
+          onClick={handleClick}
+        >
+          create
+        </button>
       </form>
-    </>
+    </div>
   )
 }
 

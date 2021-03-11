@@ -14,6 +14,23 @@ export const todoIconCss = css`
   cursor: pointer;
 `
 
-export const todoInputCss = css`
+export const todoCheckCss = css`
   margin-right: 10px;
+`
+
+export const todoFormCss = css`
+  box-sizing: border-box;
+  height: 42px;
+  width: 422px;
+  border: 2px solid #CED4DA;
+  border-radius: 4px;
+  background-color: #F8F9FA;
+  margin-right: 10px;
+  
+  &:hover {
+    border: 2px solid #868E96;
+    border-radius: 4px;
+    background-color: #F8F9FA;
+    cursor: pointer;
+  }
 `

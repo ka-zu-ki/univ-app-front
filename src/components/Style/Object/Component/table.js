@@ -14,6 +14,7 @@ export const tdCss = css`
   width: 200px;
   height: 150px;
   border: 1px ${color.black} solid;
+  cursor: pointer;
 `;
 
 export const thTimeCss = css`
