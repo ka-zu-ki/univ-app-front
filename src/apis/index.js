@@ -100,11 +100,10 @@ export const postTodo = (myclass_id, user_id, content) => {
     })
 }
 
-export const updateTodo = (myclass_id, id, content, is_completed) => {
+export const updateTodo = (myclass_id, id, content) => {
   return axios.put(BASE_URL + `/myclasses/${myclass_id}/todos/${id}`, {
     todo: {
       name: content,
-      is_completed: is_completed
     }
   })
 }
@@ -115,7 +114,7 @@ export const deleteTodo = (myclass_id, id) => {
 
 export const deleteTodos = (myclass_id, user_id) => {
   return axios.delete(
-    BASE_URL + `/myclasses/${myclass_id}/todos`, 
+    BASE_URL + `/myclasses/${myclass_id}/todos`,
     {params: {user_id: user_id}}
   )
 }

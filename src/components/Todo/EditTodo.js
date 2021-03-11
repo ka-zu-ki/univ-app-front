@@ -1,7 +1,14 @@
+/** @jsxImportSource @emotion/react */
+
 import React, { useState } from 'react'
 import { useParams, useHistory, useLocation } from "react-router-dom";
 
 import { updateTodo } from '../../apis';
+
+import { innerCss } from "../Style/Layout/main";
+import { pageTitleCss } from "../Style/Object/Component/title";
+import { todoFormCss } from "../Style/Object/Project/todo";
+import { todoButtonCss, disabledButtonBlue } from "../Style/Object/Component/button";
 
 const EditTodo = () => {
   const location = useLocation()
@@ -23,18 +30,23 @@ const EditTodo = () => {
   }
 
   return (
-    <>
-      <h1>Edit</h1>
-
+    <div css={innerCss}>
+      <div css={pageTitleCss}>Edit Todo</div>
       <form>
-        <input 
+        <input
+          css={todoFormCss}
           type="text"
           value={content}
           onChange={e => setContent(e.target.value)}
         />
-        <button onClick={handleClick}>create</button>
+        <button 
+          css={[todoButtonCss, !content && disabledButtonBlue]}
+          onClick={handleClick}
+        >
+          edit
+        </button>
       </form>
-    </>
+    </div>
   )
 }
 

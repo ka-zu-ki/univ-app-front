@@ -71,3 +71,13 @@ export const disabledButtonBlue = css`
     color: ${color.white};
   }
 `
+
+export const disabledButtonRed = css`
+  opacity: 0.5;
+
+  &:hover {
+    border: 1px solid ${color.red};
+    background-color: ${color.red};
+    color: ${color.white};
+  }
+`

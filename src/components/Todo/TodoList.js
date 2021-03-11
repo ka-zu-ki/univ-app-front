@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
-
 import { 
   fetchTodos,
   updateTodo,
@@ -23,11 +22,16 @@ import {
   todoIconCss,
   todoCheckCss
 } from "../Style/Object/Project/todo";
-import { deleteButton, createButton } from "../Style/Object/Component/button";
+import { 
+  deleteButton,
+  createButton,
+} from "../Style/Object/Component/button";
 
 const TodoList = ({ id, user_id }) => {
   const [todos, setTodos] = useState([])
   const history = useHistory()
+  const isCompleted = todos.filter((todo) => todo.is_completed)
+  console.log(isCompleted)
 
   useEffect(() => {
     let unmounted = false
@@ -127,7 +131,7 @@ const TodoList = ({ id, user_id }) => {
                       css={todoCheckCss}
                       value={todo.name}
                       onClick={() => handleClick(todo, index)}
-                      checked="checked"
+                      defaultChecked 
                     />
                     <label css={completedTodoCss}>{todo.name}</label>
                   </li>
@@ -149,7 +153,7 @@ const TodoList = ({ id, user_id }) => {
         onClick={() => {
           history.push(`/mylesson/${id}/new_todo`)
         }}
-        >
+      >
         Nwe Todo
       </button>
     </div>
