@@ -35,7 +35,7 @@ const Syllabus = () => {
   return (
     <>
       {loading ? (
-        <h1>ローディング中</h1>
+        <h1>ローディング中・・・</h1>
       ) : (
         <>
           <div css={innerCss}>

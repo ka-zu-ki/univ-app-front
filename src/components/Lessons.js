@@ -42,7 +42,7 @@ const Lessons = () => {
     <div css={innerCss}>
       <div css={pageTitleCss}>授業一覧</div>
       {loading ? (
-        <h2>ローディング中</h2>
+        <h1>ローディング中・・・</h1>
       ) : (
         <table css={lessonsTableCss}>
           <tr css={lessonsTrCss}>

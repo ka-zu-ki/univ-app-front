@@ -46,29 +46,29 @@ const Registration = () => {
     fetchData(week, time);
   };
 
-  const fetchLessons = async (userId) => {
+  const fetchMyLessons = async (userId) => {
     
     setPending(true);
-
+    
     const res = await fetchRegisteredLessons(userId);
     const registeredLessons = res.data;
-
+    
     setRegisteredLessons(registeredLessons);
     console.log(registeredLessons);
     
-    setPending(false);
   };
-
+  
   useEffect(() => {
-    fetchLessons(userId);
+    fetchMyLessons(userId);
+    setPending(false);
   }, [open]);
 
   return (
     <>
       <div css={innerCss}>
         <div css={pageTitleCss}>履修登録</div>
-        {pending ? (
-          <h2>ローディング中</h2>
+        {loading ? (
+          <h1>ローディング中・・・</h1>
         ) : (
           <div css={bgWhiteCss}>
             <table css={tableCss}>

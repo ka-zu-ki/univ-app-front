@@ -39,12 +39,12 @@ const Modal = ({ open, setOpen, lessons, loading }) => {
   return (
     <>
       {open ? (
-        <div css={overlayCss}>
-          <div css={contentCss}>
+        <div css={overlayCss} onClick={() => setOpen(false)}>
+          <div css={contentCss} onClick={(e) => e.stopPropagation()}>
             <div css={pageTitleCss}>授業一覧</div>
             <div css={modalInnerCss}>
             {loading ? (
-              <p>ローディング中・・・</p>
+              <h1>ローディング中・・・</h1>
               ) : (
               lessons.map((lesson) => (
                 <p 
