@@ -1,4 +1,7 @@
+/** @jsxImportSource @emotion/react */
+
 import React, { useContext } from "react";
+import { css } from "@emotion/react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
 
@@ -15,6 +18,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import { pageTitleCss, sectionTitleCss } from "../Style/Object/Component/title";
 
 const LogIn = () => {
   const classes = useStyles();
@@ -106,6 +110,11 @@ const LogIn = () => {
           </form>
         </div>
       </Container>
+      <div css={loginInfoCss}>
+        <p css={pageTitleCss}>こちらのアカウントをご利用ください</p>
+        <p css={sectionTitleCss}>email: test@example.com</p>
+        <p css={sectionTitleCss}>password: 123456</p>
+      </div>
     </>
   );
 };
@@ -131,3 +140,10 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
+
+
+const loginInfoCss = css`
+  margin: 0 auto;
+  width: 600px;
+  margin-top: 50px;
+`
