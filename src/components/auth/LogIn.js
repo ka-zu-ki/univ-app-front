@@ -114,6 +114,7 @@ const LogIn = () => {
         <p css={pageTitleCss}>こちらのアカウントをご利用ください</p>
         <p css={sectionTitleCss}>email: test@example.com</p>
         <p css={sectionTitleCss}>password: 123456</p>
+        <p>＊お手数ですがパスワードはコピペでなく打ち込んでください</p>
       </div>
     </>
   );
