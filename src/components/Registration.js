@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import React, { useEffect, useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 
 import Modal from "./Modal";
 import { fetchConditionalLessons, fetchRegisteredLessons } from "../apis";
@@ -24,8 +25,8 @@ const Registration = () => {
   const { state } = useContext(AppContext);
   const userId = state.id;
   const [registeredLessons, setRegisteredLessons] = useState([]);
-  console.log(userId);
   const [pending, setPending] = useState(false)
+  const history = useHistory()
 
   const fetchData = async (week, time) => {
     setLoading(true);
@@ -182,7 +183,12 @@ const Registration = () => {
           </table>
           </div>
         )}
-        <button css={createButtonLong}>履修登録を決定する</button>
+        <button 
+          css={createButtonLong}
+          onClick={() => {history.push('/')}}
+        >
+          履修登録を決定する
+        </button>
       </div>
       <Modal
         open={open}
