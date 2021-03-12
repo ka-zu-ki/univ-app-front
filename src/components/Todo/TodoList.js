@@ -30,8 +30,6 @@ import {
 const TodoList = ({ id, user_id }) => {
   const [todos, setTodos] = useState([])
   const history = useHistory()
-  const isCompleted = todos.filter((todo) => todo.is_completed)
-  console.log(isCompleted)
 
   useEffect(() => {
     let unmounted = false
@@ -70,6 +68,7 @@ const TodoList = ({ id, user_id }) => {
   const handleClick = async (todo, index) => {
     const is_completed = !todo.is_completed
     const res = await updateTodo(id, todo.id, todo.name, is_completed)
+    console.log(res.data)
 
     const newTodos = [...todos]
     newTodos[index].is_completed = res.data.is_completed
@@ -101,7 +100,8 @@ const TodoList = ({ id, user_id }) => {
                         history.push(`/mylesson/${id}/edit_todo`,
                           { 
                             name: todo.name,
-                            todoId: todo.id
+                            todoId: todo.id,
+                            is_completed: todo.is_completed
                           }
                       )}
                     />
@@ -121,7 +121,7 @@ const TodoList = ({ id, user_id }) => {
       <div css={sectionTitleCss}>完了</div>
       {
         todos.map((todo, index) => {
-          if (todo.is_completed !== false) {
+          if (todo.is_completed === true) {
             return (
               <React.Fragment key={todo.id}>
                 <ul>

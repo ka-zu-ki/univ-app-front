@@ -41,3 +41,10 @@ export const modalButtonsCss = css`
   text-align: center;
   margin-top: 50px;
 `
+
+export const modalContainerCss = css`
+  width: 500px;
+  height: 250px;
+  margin: 0 auto;
+  overflow: auto;
+`

@@ -15,6 +15,7 @@ const EditTodo = () => {
   const [content, setContent] = useState(location.state.name)
   const { id } = useParams();
   const todoId = location.state.todoId
+  const todoIsCompleted = location.state.is_completed
   const history = useHistory()
   
   const update = (id, todoId, userId, content) => {
@@ -24,7 +25,7 @@ const EditTodo = () => {
   const handleClick = (e) => {
     e.preventDefault()
 
-    update(id, todoId, content)
+    update(id, todoId, content, todoIsCompleted)
 
     history.goBack();
   }
